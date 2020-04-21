@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>403</width>
-    <height>280</height>
+    <height>303</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,7 +36,7 @@
       <x>10</x>
       <y>60</y>
       <width>381</width>
-      <height>191</height>
+      <height>211</height>
      </rect>
     </property>
     <widget class="QWidget" name="layoutWidget">
@@ -45,7 +45,7 @@
        <x>0</x>
        <y>0</y>
        <width>381</width>
-       <height>181</height>
+       <height>211</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -124,6 +124,13 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>开始</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPlainTextEdit" name="plainTextEdit_3">
         <property name="readOnly">
          <bool>true</bool>
@@ -159,6 +166,9 @@
      </property>
     </widget>
    </widget>
+   <zorder>widget_2</zorder>
+   <zorder>comboBox</zorder>
+   <zorder>widget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

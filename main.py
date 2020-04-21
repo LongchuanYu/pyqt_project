@@ -1,4 +1,4 @@
-from PyQt5 import uic,QtCore, QtGui, QtWidgets
+from PyQt5 import uic,  QtWidgets
 import sys
 
 class MainWindow():
@@ -6,6 +6,7 @@ class MainWindow():
         self.ui = uic.loadUi('view.ui')
         self.widgets = []
     def setInit(self):
+        self.ui.setFixedSize(self.ui.width(), self.ui.height())
         self.ui.comboBox.addItem('test1')
         self.ui.comboBox.addItem('test2')
         # 在这里按照顺序添加页面objname
@@ -15,14 +16,24 @@ class MainWindow():
         ]
         self.handleCombobox(0)
 
-    def modelsRegister(self):
+    def signalRegister(self):
         self.ui.comboBox.currentIndexChanged.connect(self.handleCombobox)
-        self.ui.toolButton.clicked.connect(self.handleToolButton)
+        self.ui.toolButton.clicked.connect(lambda : self.handleToolButton('original'))
+        self.ui.toolButton_2.clicked.connect(lambda : self.handleToolButton('target'))
+        self.ui.toolButton_3.clicked.connect(lambda : self.handleToolButton('file'))
 
 
-    def handleToolButton(self):
+    def handleToolButton(self,type='original'):
+        select = {
+            'original':self.ui.plainTextEdit,
+            'target':self.ui.plainTextEdit_2,
+            'file':self.ui.plainTextEdit_4
+        }
+        if not type in select:
+            return
+        obj = select[type]
         dir_path=QtWidgets.QFileDialog.getExistingDirectory(None,"choose directory","/")
-        self.ui.plainTextEdit.setPlainText(dir_path)
+        obj.setPlainText(dir_path)
         
     def handleCombobox(self,index):
         if not self.widgets:
@@ -32,7 +43,7 @@ class MainWindow():
 
     def show(self):
         self.setInit()
-        self.modelsRegister()
+        self.signalRegister()
         self.ui.show()
 
 app = QtWidgets.QApplication(sys.argv)

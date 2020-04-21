@@ -1,15 +1,15 @@
 
-PATH = r'E:\MyDocument\My CharisC3-EFI'  # 要搜索的目录地址
+# PATH = r'E:\MyDocument\My CharisC3-EFI'  # 要搜索的目录地址
 
-TARGET_PATH = r'E:\MyDocument\新しいフォルダー\1' # 把搜索结果复制到目的地址
+# TARGET_PATH = r'E:\MyDocument\新しいフォルダー\1' # 把搜索结果复制到目的地址
 
-NAME_PATH = r'1.txt' # 要读取的文件（同时搜索多个）
+# NAME_PATH = r'1.txt' # 要读取的文件（同时搜索多个）
 
-# NAME = '333' # 搜索一个
+# # NAME = '333' # 搜索一个
 
-NAMES = ['02.ｻｲｽﾞ混在［同幅］（ｽﾃｰﾌﾟﾙ）'] # 自定义搜索，如果填写了这个字段，则忽略从文件加载
+# NAMES = ['02.ｻｲｽﾞ混在［同幅］（ｽﾃｰﾌﾟﾙ）'] # 自定义搜索，如果填写了这个字段，则忽略从文件加载
 
-READ_FROM_FILE = 1 #是否开启从文件加载
+# READ_FROM_FILE = 1 #是否开启从文件加载
 
 
 
@@ -60,18 +60,18 @@ class Search():
                 print(item)
 
 
-def func(path):
-    name = path.split('\\')
-    tar = os.path.join(TARGET_PATH,name[-1])
-    copyfile(path,tar)
+# def func(path):
+#     name = path.split('\\')
+#     tar = os.path.join(TARGET_PATH,name[-1])
+#     copyfile(path,tar)
 
-def main():
-    s = Search()
-    # s.searchName(PATH,NAME,func,False)
-    if not len(NAMES) and READ_FROM_FILE:
-        with open(NAME_PATH,'r',encoding='utf-8') as f:
-            for line in f:
-                NAMES.append(line.strip('\n'))
+# def main():
+#     s = Search()
+#     # # s.searchName(PATH,NAME,func,False)
+#     # if not len(NAMES) and READ_FROM_FILE:
+#     #     with open(NAME_PATH,'r',encoding='utf-8') as f:
+#     #         for line in f:
+#     #             NAMES.append(line.strip('\n'))
 
-    s.searchNames(PATH,NAMES,func,False)
-main()
+#     s.searchNames(PATH,NAMES,func,False)
+# main()
